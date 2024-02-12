@@ -1,0 +1,258 @@
+/* using a specefic font */
+@font-face {
+  font-family: skincake;
+  src: url("/fonts/Skincake.ttf");
+}
+
+/* general resetting and basic styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+/* styles for body */
+body {
+  background-color: #f9f8f6;
+  text-align: center;
+}
+/* general styles for every h2 */
+h2 {
+  font-family: skincake;
+  color: #003150;
+  margin-bottom: 5vh;
+}
+/* styles for fixed secondary header */
+.secondary-header {
+  background-color: #003150;
+  color: #f9f8f6;
+  width: 100%;
+  height: 10vh;
+  /* center horizantally and vertically aligning*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5vw;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+.secondary-header a,
+.secondary-header i {
+  color: white;
+  text-decoration: none;
+}
+/* styles for header */
+header {
+  margin: 15vh 5vw 5vh; /* top margin should be 5vh + height for fixed secondary header*/
+  color: #003150;
+}
+header > h1 {
+  font-size: 3em;
+  font-family: skincake;
+}
+header > p {
+  font-size: 1.2em;
+}
+
+/* styles for picture */
+.image-src {
+  width: 100vw;
+  height: 80vh;
+  object-fit: cover;
+  opacity: 0.8;
+}
+.image-src:hover {
+  opacity: 1;
+}
+
+/* styles for the about section */
+.about {
+  color: #003150;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 5vh 5vw;
+}
+
+/* styles for the video section */
+.video-container,
+.audio-container,
+.jobs-list-container {
+  margin: 5vh 5vw;
+}
+video {
+  width: 80vw;
+  height: auto;
+}
+/* styles for the list of jobs */
+ol {
+  list-style-position: inside;
+  margin-bottom: 1.5rem;
+}
+.jobs-list-container {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+.jobs-list-container a {
+  display: inline-block;
+  background-color: #09649e;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.3125rem;
+  transition: background-color 0.3s;
+  margin-bottom: 1.5rem;
+}
+.jobs-list-container h2 {
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+a:hover {
+  background-color: #003150;
+}
+
+/* styles for table */
+.table-container {
+  width: 90vw;
+  margin: 5vh 5vw;
+}
+.table-container > table {
+  width: 80vw;
+  margin: auto;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+th,
+td {
+  padding: 1em;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+tr:hover {
+  background-color: rgba(240, 240, 240, 0.5);
+}
+
+/* styles for communication form */
+.communication-form-container {
+  width: 90vw;
+  margin: 5vh 5vw;
+}
+.communication-form-container > form {
+  width: 80vw;
+  margin: auto;
+}
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 0.3125rem;
+  resize: vertical;
+}
+
+label {
+  padding: 0.6em 0.6em 0.6em 0;
+  display: inline-block;
+  color: #003150;
+}
+
+input[type="submit"] {
+  background-color: #003150;
+  color: white;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  float: right;
+}
+
+input[type="submit"]:hover {
+  background-color: #09649e;
+  box-shadow: 0.5em 0.5em 1em #ccc;
+}
+
+.col-15 {
+  float: left;
+  width: 15%;
+  text-align: left;
+  margin-top: 0.5em;
+}
+
+.col-85 {
+  float: left;
+  width: 85%;
+  margin-top: 0.5em;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.focused {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* styles for nav bar */
+nav {
+  position: sticky;
+  bottom: 0;
+  width: 100vw;
+  height: 10vh;
+  background-color: #003150;
+  z-index: 1;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+nav li {
+  height: 100%;
+  line-height: 10vh;
+  padding: 0 2em;
+}
+nav li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+nav a {
+  text-decoration: none;
+  color: white;
+}
+@media screen and (max-width: 625px) {
+  nav {
+    height: auto;
+    position: relative;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-15,
+  .col-85,
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .secondary-header {
+    height: 18vh;
+  }
+}
+@media screen and (max-width: 320px) {
+  .secondary-header {
+    height: 22vh;
+    font-size: 0.9em;
+  }
+}

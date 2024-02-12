@@ -1,0 +1,14 @@
+/* basic and reset styles */
+@import "variables";
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: $default-font;
+  color: $brand-color;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}

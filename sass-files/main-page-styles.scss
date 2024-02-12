@@ -1,0 +1,304 @@
+@import "reset";
+@mixin set-w-h($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin centering-h-v {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin transition-config(
+  $transition-property,
+  $transition-duration,
+  $transition-timing-function
+) {
+  transition-property: $transition-property;
+  transition-duration: $transition-duration;
+  transition-timing-function: $transition-timing-function;
+}
+@mixin anchor-style {
+  font-weight: bold;
+  color: $brand-color !important; //i needed to put important because of the default color in bootstrap
+}
+/* styles for header */
+header {
+  width: 100%;
+  text-align: center;
+}
+
+/* styles for upper part of the header */
+.upper-part-of-header-container {
+  @include set-w-h(100%, 130px);
+  background-color: $supplemantary-color;
+  //centering the paragraph inside the container
+  @include centering-h-v;
+}
+
+.upper-part-of-header {
+  i {
+    position: relative;
+    left: 0;
+    @include transition-config(left, 0.5s, ease);
+  }
+  p {
+    font-size: 0.9rem;
+    margin: 0;
+    a:hover {
+      i {
+        left: 5px;
+      }
+    }
+  }
+}
+
+/* styles for the quick links part container */
+.quick-links-part-container {
+  display: none;
+}
+
+/* styles for the primary nav part */
+.primary-nav-container {
+  @include set-w-h(100%, 100px);
+  background-color: white;
+  position: relative;
+}
+.primary-nav {
+  display: none;
+}
+.small-screen-nav {
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  width: calc(100vw - 24px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon {
+  max-width: 25px;
+  height: auto;
+}
+#logo {
+  max-width: 150px;
+  height: auto;
+}
+
+/* header::after styling */
+header::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 10px;
+  background-color: $line-color;
+}
+
+@media screen and (min-width: 320px) {
+  .icon {
+    max-width: 35px;
+    height: auto;
+  }
+  #logo {
+    max-width: 200px;
+    height: auto;
+  }
+}
+@media screen and (min-width: 600px) {
+  .small-screen-nav-container {
+    height: 110px;
+  }
+  .small-screen-nav {
+    margin: 0 18px;
+    width: calc(100% - 60px);
+  }
+  .icon {
+    max-width: 50px;
+    height: auto;
+  }
+  #logo {
+    max-width: 300px;
+    height: auto;
+  }
+}
+@media screen and (min-width: 375px) {
+  .upper-part-of-header {
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .upper-part-of-header {
+    p {
+      margin: 0 36px; //60px - 12*2px for container
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  //upper part of the header styles
+  .upper-part-of-header-container {
+    width: 100%;
+    height: 70px;
+  }
+  .upper-part-of-header {
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  //quick links part
+  .quick-links-part-container {
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: $secondary-color;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    a,
+    i::before {
+      @include anchor-style;
+    }
+  }
+  .quick-links-part {
+    ul {
+      width: 250px;
+      display: flex;
+      justify-content: space-between;
+      float: right;
+      margin: 0 66px; //90px - 12*2 for container's padding
+      li {
+        display: inline-block;
+        line-height: 40px;
+        a {
+          i {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  header::after {
+    height: 5px;
+  }
+
+  .small-screen-nav {
+    display: none;
+  }
+
+  .primary-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 62px; //90px - 12*2(for container's padding) - 2pixels of padding
+
+    a,
+    i::before {
+      @include anchor-style;
+    }
+
+    img {
+      // max-width: 200px;
+      max-width: 150px;
+      height: auto;
+    }
+  }
+  .primary-nav {
+    nav > ul {
+      width: 680px;
+      height: 100%;
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+      li {
+        height: 100%;
+        line-height: 100px;
+        font-size: 12px;
+        padding: 0 2px;
+      }
+      li:hover {
+        background-color: $secondary-color;
+      }
+    }
+    #search-nav-link {
+      a {
+        margin-left: 10px;
+      }
+    }
+    .drop-down-menu {
+      display: none;
+    }
+    #drop-down-li {
+      position: relative;
+    }
+    .drop-down-menu {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 90%;
+      background-color: white;
+      box-shadow: 1px 1px 2px $shadow-color;
+      z-index: 1;
+      ul {
+        height: 210px;
+        li {
+          width: 200px;
+          height: 70px;
+          text-align: center;
+          line-height: 70px;
+          text-transform: capitalize;
+          transition-property: background-color;
+          transition-duration: 1s;
+          transition-timing-function: ease;
+        }
+      }
+      li:hover {
+        background-color: $secondary-color;
+      }
+    }
+
+    #drop-down-li:hover {
+      .drop-down-menu {
+        display: block;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .primary-nav {
+    img {
+      max-width: 200px;
+      height: auto;
+    }
+  }
+  .primary-nav {
+    nav > ul {
+      width: 1050px;
+      li {
+        font-size: 16px;
+        padding: 0 4px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1529px) {
+  .primary-nav {
+    nav > ul {
+      width: 1100px;
+      li {
+        font-size: 16px;
+        padding: 0 4px;
+      }
+    }
+  }
+}

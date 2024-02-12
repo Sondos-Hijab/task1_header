@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Information</title>
+    <link rel="stylesheet" href="../css/company-info-styles.css" />
+    <!-- adding a favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+
+    <!-- setup for fontawesome library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <!-- secondary fixed header -->
+    <div class="secondary-header">
+      <p>
+        Cleaver-Brooks ClearFire®-CE Condensing Boiler Named Most Valuable
+        Product of the Year by Industry Professionals.
+        <a href="https://www.xngage.com" target="_blank">
+          <span> Learn&nbsp;More</span>&nbsp;<i
+            class="fa-solid fa-arrow-right"
+          ></i>
+        </a>
+      </p>
+    </div>
+
+    <!-- main header -->
+    <header>
+      <h1>Company Information</h1>
+      <p>
+        Xngage hires the best talent so that we can offer you the best service.
+        Our leadership team is made up of
+        <strong>B2B e-commerce and web development industry veterans</strong>
+        who know what it takes to get the job done right.
+      </p>
+    </header>
+
+    <picture id="picture">
+      <source
+        media="(max-width: 320px)"
+        srcset="../images/work_image_5.jpg"
+        class="image-src"
+      />
+      <source
+        media="(max-width: 425px)"
+        srcset="../images/work_image_3.jpg"
+        class="image-src"
+      />
+      <source
+        media="(max-width: 767px)"
+        srcset="../images/work_image_3.jpg"
+        class="image-src"
+      />
+      <source
+        media="(max-width: 1023px)"
+        srcset="../images/work_image_2.jpg"
+        class="image-src"
+      />
+      <source
+        media="(max-width: 1439px)"
+        srcset="../images/work_image_1.jpg"
+        class="image-src"
+      />
+
+      <img src="../images/work_img_6.jpg" class="image-src" />
+    </picture>
+    <div class="about" id="about">
+      <h2>About Our Company</h2>
+      We average over 15 years per employee of hands-on B2B experience. Our
+      leaders are versed in a wide variety of
+      <em
+        >Enterprise Resource Platform (ERP), Product Information Management
+        (PIM), Digital Asset Management (DAM) and content-and-commerce systems </em
+      >, allowing our team to create some of the best B2B e-commerce websites.
+      To learn more about our strategic partners, please visit our Platforms
+      Page.
+    </div>
+    <div class="video-container" id="video">
+      <h2>A video About Xngage</h2>
+      <video controls autoplay muted>
+        <source
+          src="../videos-and-audios/An Xngage Digital Transformation featuring Guest Supply.mp4"
+          type="video/mp4"
+        />
+        <source src="../videos-and-audios/Xngage.ogg" type="video/ogg" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="audio-container" id="audio">
+      <h2>An Audio About Xngage</h2>
+      <audio controls>
+        <source src="../videos-and-audios/audio.mp3" type="audio/mp3" />
+        <source src="../videos/Xngage.ogg" type="audio/ogg" />
+        Your browser does not support the audio tag.
+      </audio>
+    </div>
+
+    <div class="jobs-list-container" id="jobs-list">
+      <h2>You can apply to any of these jobs if you're interested</h2>
+      <ol>
+        <li>Software Develoeper</li>
+        <li>Backened Developer</li>
+        <li>Frontend Developer</li>
+        <li>Product Manager</li>
+        <li>UX/UI Designer</li>
+      </ol>
+      <a href="#">Click here to apply to one of them!</a>
+    </div>
+
+    <div class="table-container" id="table">
+      <h2>Table for our leaders</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+        </tr>
+        <tr>
+          <td>JOE ALBRECHT</td>
+          <td>CEO, Chief Digital Executive</td>
+        </tr>
+        <tr>
+          <td>CHARBEL ABOU CHAAYA</td>
+          <td>CDO, Chief Digital Executive</td>
+        </tr>
+        <tr>
+          <td>JOE DAYTON</td>
+          <td>Vice President of Operations</td>
+        </tr>
+        <tr>
+          <td>SCOTT MERICAL</td>
+          <td>Vice President of Commerce Solutions</td>
+        </tr>
+      </table>
+    </div>
+    <div class="communication-form-container" id="form">
+      <h2>Submit this form so we can contact you</h2>
+      <form id="infoForm" action="#" method="post">
+        <div class="row">
+          <div class="col-15">
+            <label for="fname">First Name</label>
+          </div>
+          <div class="col-85">
+            <input
+              type="text"
+              id="fname"
+              name="firstname"
+              placeholder="Your name.."
+              onfocus="addShadow(this);"
+              onblur="removeShadow(this);"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-15">
+            <label for="lname">Last Name</label>
+          </div>
+          <div class="col-85">
+            <input
+              type="text"
+              id="lname"
+              name="lastname"
+              placeholder="Your last name.."
+              onfocus="addShadow(this);"
+              onblur="removeShadow(this);"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-15">
+            <label for="email">Email</label>
+          </div>
+          <div class="col-85">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              onfocus="addShadow(this);"
+              onblur="removeShadow(this);"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-15">
+            <label for="country">Country</label>
+          </div>
+          <div class="col-85">
+            <select
+              id="country"
+              name="country"
+              onfocus="addShadow(this);"
+              onblur="removeShadow(this);"
+            >
+              <option value="palestine">Palestine</option>
+              <option value="jordan">Jordan</option>
+              <option value="qatar">Qatar</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-15">
+            <label for="subject">Subject</label>
+          </div>
+          <div class="col-85">
+            <textarea
+              id="subject"
+              name="subject"
+              placeholder="Write something.."
+              style="height: 200px"
+              onfocus="addShadow(this);"
+              onblur="removeShadow(this);"
+            ></textarea>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#picture">Picture</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#audio">Audio</a></li>
+        <li><a href="#tabale">Table</a></li>
+        <li><a href="#form">Form</a></li>
+      </ul>
+    </nav>
+    <script src="../script.js"></script>
+  </body>
+</html>
