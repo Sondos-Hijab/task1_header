@@ -80,7 +80,7 @@ header > p {
   margin: 5vh 5vw;
 }
 video {
-  width: 80vw;
+  max-width: 80vw;
   height: auto;
 }
 /* styles for the list of jobs */
