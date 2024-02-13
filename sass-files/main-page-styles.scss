@@ -3,11 +3,7 @@
   width: $width;
   height: $height;
 }
-@mixin centering-h-v {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 @mixin transition-config(
   $transition-property,
   $transition-duration,
@@ -32,7 +28,9 @@ header {
   @include set-w-h(100%, 130px);
   background-color: $supplemantary-color;
   //centering the paragraph inside the container
-  @include centering-h-v;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .upper-part-of-header {
@@ -43,7 +41,6 @@ header {
   }
   p {
     font-size: 0.9rem;
-    margin: 0;
     a:hover {
       i {
         left: 5px;
@@ -61,18 +58,12 @@ header {
 .primary-nav-container {
   @include set-w-h(100%, 100px);
   background-color: white;
-  position: relative;
 }
 .primary-nav {
   display: none;
 }
 .small-screen-nav {
-  position: absolute;
-
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0;
-  width: calc(100vw - 24px);
+  @include set-w-h(calc(100vw - 24px), 100%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,6 +71,7 @@ header {
 .icon {
   max-width: 25px;
   height: auto;
+  fill: $brand-color;
 }
 #logo {
   max-width: 150px;
@@ -105,12 +97,19 @@ header::after {
     height: auto;
   }
 }
+@media screen and (min-width: 375px) {
+  .upper-part-of-header {
+    p {
+      font-size: 1rem;
+    }
+  }
+}
 @media screen and (min-width: 600px) {
-  .small-screen-nav-container {
+  .primary-nav-container {
     height: 110px;
   }
   .small-screen-nav {
-    margin: 0 18px;
+    margin: 0 18px; //30px margin -12 padding for the container
     width: calc(100% - 60px);
   }
   .icon {
@@ -122,18 +121,11 @@ header::after {
     height: auto;
   }
 }
-@media screen and (min-width: 375px) {
-  .upper-part-of-header {
-    p {
-      font-size: 1rem;
-    }
-  }
-}
 
 @media screen and (min-width: 700px) {
   .upper-part-of-header {
     p {
-      margin: 0 36px; //60px - 12*2px for container
+      margin: 0 48px; //60px - 12px padding for container
       font-size: 1.5rem;
     }
   }
@@ -142,7 +134,6 @@ header::after {
 @media screen and (min-width: 769px) {
   //upper part of the header styles
   .upper-part-of-header-container {
-    width: 100%;
     height: 70px;
   }
   .upper-part-of-header {
@@ -154,24 +145,24 @@ header::after {
   //quick links part
   .quick-links-part-container {
     display: block;
-    width: 100%;
-    height: 40px;
+    @include set-w-h(100%, 40px);
     background-color: $secondary-color;
     position: relative;
     z-index: 1;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 6px $shadow-color;
     a,
     i::before {
       @include anchor-style;
     }
   }
   .quick-links-part {
+    display: flex;
+    justify-content: center;
     ul {
       width: 250px;
       display: flex;
       justify-content: space-between;
-      float: right;
-      margin: 0 66px; //90px - 12*2 for container's padding
+
       li {
         display: inline-block;
         line-height: 40px;
@@ -186,6 +177,13 @@ header::after {
 }
 
 @media screen and (min-width: 1023px) {
+  .quick-links-part {
+    display: block;
+    ul {
+      float: right;
+      margin-right: 78px; //90px - 12 for container's padding
+    }
+  }
   header::after {
     height: 5px;
   }
@@ -194,11 +192,14 @@ header::after {
     display: none;
   }
 
+  .primary-nav-container {
+    height: 100px;
+  }
   .primary-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 62px; //90px - 12*2(for container's padding) - 2pixels of padding
+    margin: 0 76px; //90px - 12(for container's padding) - 2pixels of padding for li
 
     a,
     i::before {
@@ -206,15 +207,14 @@ header::after {
     }
 
     img {
-      // max-width: 200px;
       max-width: 150px;
       height: auto;
     }
   }
   .primary-nav {
+    //only for ul that is inside nav, not the drop-down-menu ul
     nav > ul {
-      width: 680px;
-      height: 100%;
+      @include set-w-h(680px, 100%);
       display: inline-flex;
       justify-content: space-between;
       align-items: center;
@@ -224,28 +224,29 @@ header::after {
         font-size: 12px;
         padding: 0 2px;
       }
-      li:hover {
-        background-color: $secondary-color;
-      }
     }
-    #search-nav-link {
-      a {
-        margin-left: 10px;
-      }
+    //for all li in primary nav
+    li:hover {
+      background-color: $secondary-color;
     }
+
     .drop-down-menu {
       display: none;
+    }
+    li:hover {
+      background-color: $secondary-color;
     }
     #drop-down-li {
       position: relative;
     }
+    //positining the drop down menu relative to the drop-down-li
     .drop-down-menu {
       display: none;
       position: absolute;
       left: 0;
       top: 90%;
       background-color: white;
-      box-shadow: 1px 1px 2px $shadow-color;
+      box-shadow: 0px 1px 2px $shadow-color;
       z-index: 1;
       ul {
         height: 210px;
@@ -255,19 +256,30 @@ header::after {
           text-align: center;
           line-height: 70px;
           text-transform: capitalize;
-          transition-property: background-color;
-          transition-duration: 1s;
-          transition-timing-function: ease;
+          @include transition-config(background-color, 1s, ease);
         }
-      }
-      li:hover {
-        background-color: $secondary-color;
       }
     }
 
     #drop-down-li:hover {
       .drop-down-menu {
         display: block;
+      }
+    }
+  }
+  #search-nav-link {
+    i {
+      margin-left: 8px;
+    }
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .primary-nav {
+    nav > ul {
+      width: 800px;
+      li {
+        font-size: 14px;
       }
     }
   }
@@ -294,10 +306,9 @@ header::after {
 @media screen and (min-width: 1529px) {
   .primary-nav {
     nav > ul {
-      width: 1100px;
+      width: 1090px;
       li {
-        font-size: 16px;
-        padding: 0 4px;
+        font-size: 18px;
       }
     }
   }
