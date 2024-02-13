@@ -271,7 +271,7 @@ header::after {
   .primary-nav nav > ul {
     width: 1090px;
   }
-  .primary-nav nav > ul li {
-    font-size: 18px;
+  .primary-nav nav > ul li a {
+    letter-spacing: 1px;
   }
 }

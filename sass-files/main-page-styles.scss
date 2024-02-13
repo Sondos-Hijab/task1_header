@@ -302,8 +302,11 @@ header::after {
   .primary-nav {
     nav > ul {
       width: 1090px;
+
       li {
-        font-size: 18px;
+        a {
+          letter-spacing: 1px;
+        }
       }
     }
   }
