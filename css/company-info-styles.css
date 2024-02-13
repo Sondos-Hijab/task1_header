@@ -229,6 +229,14 @@ nav a {
   text-decoration: none;
   color: white;
 }
+@media screen and (max-width: 1024px) {
+  .secondary-header{
+    height: 20vh;
+  }
+  header{
+    margin-top: 25vh ;
+  }
+}
 @media screen and (max-width: 625px) {
   nav {
     height: auto;
@@ -249,13 +257,18 @@ nav a {
 }
 
 @media screen and (max-width: 424px) {
-  .secondary-header {
-    height: 18vh;
+  .secondary-header{
+    height: 30vh;
+  }
+  header{
+    margin-top: 35vh ;
   }
 }
-@media screen and (max-width: 320px) {
-  .secondary-header {
-    height: 22vh;
-    font-size: 0.9em;
+@media screen and (max-width: 375px) {
+  .secondary-header{
+    height: 40vh;
+  }
+  header{
+    margin-top: 45vh ;
   }
 }
