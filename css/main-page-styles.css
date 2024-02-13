@@ -142,10 +142,8 @@ header::after {
     z-index: 1;
     box-shadow: 0 3px 6px rgb(210, 207, 207);
   }
-  .quick-links-part-container a,
   .quick-links-part-container i::before {
-    font-weight: bold;
-    color: #003150 !important;
+    color: #003150;
   }
   .quick-links-part {
     display: flex;
@@ -187,10 +185,8 @@ header::after {
     align-items: center;
     margin: 0 76px;
   }
-  .primary-nav a,
   .primary-nav i::before {
-    font-weight: bold;
-    color: #003150 !important;
+    color: #003150;
   }
   .primary-nav img {
     max-width: 150px;

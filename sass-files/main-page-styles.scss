@@ -13,10 +13,7 @@
   transition-duration: $transition-duration;
   transition-timing-function: $transition-timing-function;
 }
-@mixin anchor-style {
-  font-weight: bold;
-  color: $brand-color !important; //i needed to put important because of the default color in bootstrap
-}
+
 /* styles for header */
 header {
   width: 100%;
@@ -150,9 +147,8 @@ header::after {
     position: relative;
     z-index: 1;
     box-shadow: 0 3px 6px $shadow-color;
-    a,
     i::before {
-      @include anchor-style;
+      color: $brand-color;
     }
   }
   .quick-links-part {
@@ -201,9 +197,8 @@ header::after {
     align-items: center;
     margin: 0 76px; //90px - 12(for container's padding) - 2pixels of padding for li
 
-    a,
     i::before {
-      @include anchor-style;
+      color: $brand-color;
     }
 
     img {
