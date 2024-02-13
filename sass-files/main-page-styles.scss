@@ -196,7 +196,6 @@ header::after {
     justify-content: space-between;
     align-items: center;
     margin: 0 76px; //90px - 12(for container's padding) - 2pixels of padding for li
-
     i::before {
       color: $brand-color;
     }
