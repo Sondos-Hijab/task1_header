@@ -1,6 +1,14 @@
 // custom variable values
 $primary: #003150;
 
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1700px,
+  //changed the xxl from 1320px to 1700px
+);
 // import the bootstrap which imports everything in the toolkit
 
 @import "../node_modules/bootstrap/scss/bootstrap";
