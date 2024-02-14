@@ -1,7 +1,6 @@
 // custom variable values
 $primary: #003150;
 
-// import the functions & variables
-@import "../node_modules/bootstrap/scss/_functions";
-@import "../node_modules/bootstrap/scss/_variables";
+// import the bootstrap which imports everything in the toolkit
+
 @import "../node_modules/bootstrap/scss/bootstrap";
