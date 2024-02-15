@@ -66,8 +66,7 @@ header {
   align-items: center;
 }
 .icon {
-  max-width: 25px;
-  height: auto;
+  font-size: 20px;
   fill: $brand-color;
 }
 #logo {
@@ -86,8 +85,7 @@ header::after {
 
 @media screen and (min-width: 320px) {
   .icon {
-    max-width: 35px;
-    height: auto;
+    font-size: 30px;
   }
   #logo {
     max-width: 200px;
@@ -110,8 +108,7 @@ header::after {
     width: calc(100% - 36px);
   }
   .icon {
-    max-width: 50px;
-    height: auto;
+    font-size: 50px;
   }
   #logo {
     max-width: 300px;
@@ -147,9 +144,6 @@ header::after {
     position: relative;
     z-index: 1;
     box-shadow: 0 3px 6px $shadow-color;
-    i::before {
-      color: $brand-color;
-    }
   }
   .quick-links-part {
     display: flex;
@@ -196,9 +190,6 @@ header::after {
     justify-content: space-between;
     align-items: center;
     margin: 0 76px; //90px - 12(for container's padding) - 2pixels of padding for li
-    i::before {
-      color: $brand-color;
-    }
 
     img {
       max-width: 150px;
