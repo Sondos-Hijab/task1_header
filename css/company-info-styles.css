@@ -8,6 +8,9 @@
 :root {
   --brand-color: #003150;
   --default-font: Helvetica, Arial, sans-serif;
+  --helper-color: #f9f8f6;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --button-color: #09649e;
 }
 
 /* general resetting and basic styles */
@@ -19,7 +22,7 @@
 }
 /* styles for body */
 body {
-  background-color: #f9f8f6;
+  background-color: var(--helper-color);
   text-align: center;
 }
 /* general styles for every h2 */
@@ -31,19 +34,17 @@ h2 {
 /* styles for fixed secondary header */
 .secondary-header {
   background-color: var(--brand-color);
-  color: #f9f8f6;
+  color: var(--helper-color);
   width: 100%;
   height: 10vh;
-  position: relative;
   padding: 0 5vw;
   position: fixed;
   top: 0;
   z-index: 1;
 }
 .secondary-header p {
-  width: 86vw;
-  margin: 0 2vw;
-  /* center horizantally and vertically aligning*/
+  width: calc(100% - 10vw);
+  /* center horizantally and vertically*/
   position: absolute;
   top: 50%;
   left: 50%;
@@ -53,16 +54,17 @@ h2 {
   color: white;
   text-decoration: none;
 }
+
 /* styles for header */
 header {
   margin: 15vh 5vw 5vh; /* top margin should be 5vh + height for fixed secondary header*/
   color: var(--brand-color);
 }
-header > h1 {
+header h1 {
   font-size: 2em;
   font-family: skincake;
 }
-header > p {
+header p {
   font-size: 1.2em;
 }
 
@@ -86,8 +88,7 @@ header > p {
 
 /* styles for the video section */
 .video-container,
-.audio-container,
-.jobs-list-container {
+.audio-container {
   margin: 5vh 5vw;
 }
 video {
@@ -109,7 +110,7 @@ ol {
 }
 .jobs-list-container a {
   display: inline-block;
-  background-color: #09649e;
+  background-color: var(--button-color);
   color: #fff;
   text-decoration: none;
   padding: 0.625rem 1.25rem;
@@ -177,18 +178,19 @@ label {
 }
 
 input[type="submit"] {
-  background-color: var(--brand-color);
+  background-color: var(--button-color);
   color: white;
-  padding: 1em 2em;
   border: none;
   border-radius: 0.3125rem;
   cursor: pointer;
   float: right;
+  padding: 0.625rem 1.25rem;
+  transition: background-color 0.3s;
+  width: 8vw;
 }
 
 input[type="submit"]:hover {
-  background-color: #09649e;
-  box-shadow: 0.5em 0.5em 1em #ccc;
+  background-color: var(--brand-color);
 }
 
 .col-15 {
@@ -204,14 +206,14 @@ input[type="submit"]:hover {
   margin-top: 0.5em;
 }
 
-/* Clear floats after the columns */
+/* Clear floats after the rows */
 .row::after {
   content: "";
   display: table;
   clear: both;
 }
 .focused {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 5px var(--shadow-color);
 }
 
 /* styles for nav bar */

@@ -14,23 +14,17 @@
   transition-timing-function: $transition-timing-function;
 }
 
-/* styles for header */
-header {
-  width: 100%;
-  text-align: center;
-}
-
 /* styles for upper part of the header */
 .upper-part-of-header-container {
   @include set-w-h(100%, 130px);
   background-color: $supplemantary-color;
-  //centering the paragraph inside the container
+  //centering the upper part of header div vertically inside the container
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .upper-part-of-header {
+  text-align: center;
   i {
     position: relative;
     left: 0;
@@ -56,18 +50,21 @@ header {
   @include set-w-h(100%, 100px);
   background-color: white;
 }
+.primary-nav-inside-container {
+  height: 100%;
+}
 .primary-nav {
   display: none;
 }
+
 .small-screen-nav {
-  @include set-w-h(calc(100vw - 24px), 100%);
+  @include set-w-h(100%, 100%);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .icon {
   font-size: 20px;
-  fill: $brand-color;
 }
 #logo {
   max-width: 150px;
@@ -141,7 +138,7 @@ header::after {
     display: block;
     @include set-w-h(100%, 40px);
     background-color: $secondary-color;
-    position: relative;
+    position: relative; //to give the z-index, to make shadow appear
     z-index: 1;
     box-shadow: 0 3px 6px $shadow-color;
   }
@@ -152,7 +149,6 @@ header::after {
       width: 250px;
       display: flex;
       justify-content: space-between;
-
       li {
         display: inline-block;
         line-height: 40px;
@@ -189,7 +185,7 @@ header::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 76px; //90px - 12(for container's padding) - 2pixels of padding for li
+    margin: 0 70px;
 
     img {
       max-width: 150px;
@@ -215,12 +211,6 @@ header::after {
       background-color: $secondary-color;
     }
 
-    .drop-down-menu {
-      display: none;
-    }
-    li:hover {
-      background-color: $secondary-color;
-    }
     #drop-down-li {
       position: relative;
     }
@@ -272,6 +262,7 @@ header::after {
 
 @media screen and (min-width: 1440px) {
   .primary-nav {
+    margin: 0 74px; //90px - 12(for container's padding) - 4 pixels of padding for li
     img {
       max-width: 200px;
       height: auto;
@@ -292,7 +283,6 @@ header::after {
   .primary-nav {
     nav > ul {
       width: 1090px;
-
       li {
         a {
           letter-spacing: 1px;
